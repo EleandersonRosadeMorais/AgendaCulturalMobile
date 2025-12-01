@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "AgendaCulturalMobile"
+rootProject.name = "portalulbra"
 include ':app'
