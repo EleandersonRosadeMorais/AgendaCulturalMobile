@@ -1,29 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="12dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#EEEEEE">
+    android:layout_marginBottom="16dp"
+    android:background="@drawable/bg_item_noticia">
 
+    <!-- Banner da notícia -->
+    <ImageView
+        android:id="@+id/imgBanner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icone_banner"
+        android:contentDescription="Imagem do evento"/>
+
+    <!-- Título centralizado -->
     <TextView
         android:id="@+id/txtTituloItem"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <!-- Descrição prévia -->
     <TextView
-        android:id="@+id/txtDataPostagemItem"
-        android:text="Postado em: "
+        android:id="@+id/txtDescricaoItem"
         android:textSize="14sp"
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <!-- Data do evento -->
     <TextView
         android:id="@+id/txtDataEventoItem"
-        android:text="Evento: "
         android:textSize="14sp"
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <!-- Data da postagem -->
+    <TextView
+        android:id="@+id/txtDataPostagemItem"
+        android:textSize="14sp"
+        android:layout_marginTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!-- Botões na parte inferior -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnVerMais"
+            android:text="Ver mais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Botão de favoritar como estrela -->
+        <ImageButton
+            android:id="@+id/btnFavoritar"
+            android:src="@drawable/ic_star_border"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Favoritar"/>
+    </LinearLayout>
 </LinearLayout>

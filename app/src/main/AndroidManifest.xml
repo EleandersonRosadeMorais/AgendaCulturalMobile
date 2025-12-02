@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Portalulbra">
+        android:theme="@style/Theme.AgendaCultural">
 
         <activity
-            android:name=".activities.LoginActivity"
+            android:name="com.ulbra.AgendaCulturalMobile.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +21,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.MenuActivity" />
-        <activity android:name=".activities.CadastroActivity" />
-        <activity android:name=".activities.NoticiaActivity" />
-
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.MenuActivity" />
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.CadastroActivity" />
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.NoticiaActivity" />
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.FavoritosActivity" />
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.PerfilActivity" />
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.SobreActivity" />
     </application>
 </manifest>

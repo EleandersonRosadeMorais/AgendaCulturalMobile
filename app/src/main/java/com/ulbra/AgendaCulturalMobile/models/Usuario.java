@@ -1,4 +1,4 @@
-package com.ulbra.myapplication.models;
+package com.ulbra.AgendaCulturalMobile.models;
 
 public class Usuario {
     private String nome;

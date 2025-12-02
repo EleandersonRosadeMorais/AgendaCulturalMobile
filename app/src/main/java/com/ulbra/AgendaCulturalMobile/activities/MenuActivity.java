@@ -1,0 +1,81 @@
+package com.ulbra.AgendaCulturalMobile.activities;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.navigation.NavigationView;
+import com.ulbra.AgendaCulturalMobile.adapter.NoticiaAdapter;
+import com.ulbra.myapplication.R;
+import com.ulbra.AgendaCulturalMobile.models.Noticia;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuActivity extends AppCompatActivity {
+
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private RecyclerView recyclerNoticias;
+    private NoticiaAdapter noticiaAdapter;
+    private List<Noticia> listaNoticias;
+    private ImageView btnMenu;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.tela_menu);
+
+        // Inicializa DrawerLayout, NavigationView e botão de menu
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationView = findViewById(R.id.navigationView);
+        btnMenu = findViewById(R.id.btnMenu);
+
+        // Clique no botão hambúrguer abre o menu lateral
+        btnMenu.setOnClickListener(v -> drawerLayout.openDrawer(GravityCompat.END));
+
+        // Trata cliques no menu lateral
+        navigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
+
+        // Configura o RecyclerView
+        recyclerNoticias = findViewById(R.id.recyclerNoticias);
+        recyclerNoticias.setLayoutManager(new LinearLayoutManager(this));
+
+        listaNoticias = new ArrayList<>();
+        listaNoticias.add(new Noticia("Título 1", "Corpo da notícia 1", "01/12/2025", "05/12/2025", "Auditório"));
+        listaNoticias.add(new Noticia("Título 2", "Corpo da notícia 2", "30/11/2025", null, null));
+
+        noticiaAdapter = new NoticiaAdapter(listaNoticias);
+        recyclerNoticias.setAdapter(noticiaAdapter);
+    }
+
+    // Trata seleção de itens do Drawer
+    private boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_favoritos) {
+            startActivity(new Intent(this, FavoritosActivity.class));
+        } else if (id == R.id.nav_perfil) {
+            startActivity(new Intent(this, PerfilActivity.class));
+        } else if (id == R.id.nav_sobre) {
+            startActivity(new Intent(MenuActivity.this, SobreActivity.class));
+        } else if (id == R.id.nav_desconectar) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        }
+
+        drawerLayout.closeDrawers();
+        return true;
+    }
+}

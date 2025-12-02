@@ -1,4 +1,4 @@
-package com.ulbra.myapplication.activities;
+package com.ulbra.AgendaCulturalMobile.activities;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -6,7 +6,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ulbra.myapplication.R;
-import com.ulbra.myapplication.models.Usuario;
+import com.ulbra.AgendaCulturalMobile.models.Usuario;
 
 public class CadastroActivity extends AppCompatActivity {
 

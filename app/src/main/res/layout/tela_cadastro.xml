@@ -29,6 +29,7 @@
     <Button
         android:id="@+id/btnCadastrar"
         android:text="Cadastrar"
+        android:backgroundTint="@color/beige"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

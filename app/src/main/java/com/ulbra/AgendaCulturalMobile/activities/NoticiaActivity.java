@@ -1,4 +1,4 @@
-package com.ulbra.myapplication.activities;
+package com.ulbra.AgendaCulturalMobile.activities;
 
 import android.os.Bundle;
 import android.widget.TextView;
