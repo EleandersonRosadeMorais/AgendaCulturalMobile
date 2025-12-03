@@ -1,8 +1,10 @@
 package com.ulbra.AgendaCulturalMobile.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ulbra.myapplication.R;
@@ -24,12 +26,31 @@ public class CadastroActivity extends AppCompatActivity {
         btnCadastrar = findViewById(R.id.btnCadastrar);
 
         btnCadastrar.setOnClickListener(v -> {
-            Usuario usuario = new Usuario(
-                    edtNome.getText().toString(),
-                    edtEmail.getText().toString(),
-                    edtSenha.getText().toString()
-            );
-            // Aqui salvaria no banco ou API
+            try {
+                // Simulação de cadastro
+                Usuario usuario = new Usuario(
+                        edtNome.getText().toString().trim(),
+                        edtEmail.getText().toString().trim(),
+                        edtSenha.getText().toString().trim()
+                );
+
+                // Aqui futuramente salvaria no banco ou API
+                // Por enquanto, apenas simulação de sucesso
+                Toast.makeText(CadastroActivity.this,
+                        "Cadastro realizado com sucesso!",
+                        Toast.LENGTH_SHORT).show();
+
+                // Vai para tela de Login
+                Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+
+            } catch (Exception e) {
+                // Caso ocorra algum erro inesperado
+                Toast.makeText(CadastroActivity.this,
+                        "Erro ao cadastrar: " + e.getMessage(),
+                        Toast.LENGTH_LONG).show();
+            }
         });
     }
 }

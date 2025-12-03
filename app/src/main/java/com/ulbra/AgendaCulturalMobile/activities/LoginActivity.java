@@ -12,7 +12,7 @@ import com.ulbra.myapplication.R;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText edtEmail, edtSenha;
-    private Button btnLogar;
+    private Button btnLogar, btnCadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         edtEmail = findViewById(R.id.edtEmail);
         edtSenha = findViewById(R.id.edtSenha);
         btnLogar = findViewById(R.id.btnLogar);
+        btnCadastrar = findViewById(R.id.btnCadastrar);
 
         btnLogar.setOnClickListener(v -> {
             String email = edtEmail.getText().toString().trim();
@@ -40,6 +41,11 @@ public class LoginActivity extends AppCompatActivity {
                         "Email ou senha inválidos (login temporário)",
                         Toast.LENGTH_SHORT).show();
             }
+        });
+
+        btnCadastrar.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, CadastroActivity.class);
+            startActivity(intent);
         });
     }
 }
