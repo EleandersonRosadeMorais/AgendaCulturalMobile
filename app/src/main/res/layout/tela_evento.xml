@@ -9,6 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/imgBanner"
+            android:layout_width="280dp"
+            android:layout_height="220dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Imagem do evento"
+            android:scaleType="centerInside"
+            android:layout_marginBottom="18sp"
+            android:src="@drawable/icone_banner" />
 
         <TextView
             android:id="@+id/txtTitulo"
@@ -21,6 +30,9 @@
 
         <TextView
             android:id="@+id/txtCorpo"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="8dp"/>
@@ -28,30 +40,67 @@
         <TextView
             android:id="@+id/txtDataPostagem"
             android:text="Postado em: "
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtDataEvento"
             android:text="Data do evento: "
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/txtLocal"
             android:text="Local: "
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <!-- Responsável -->
         <TextView
             android:id="@+id/txtResponsavel"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="italic"
             android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Responsável: "/>
+
+        <!-- Botões na parte inferior -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:paddingVertical="2sp"
+            android:paddingRight="15sp"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Botão Favoritar -->
+            <ImageButton
+                android:id="@+id/btnFavoritar"
+                android:src="@drawable/ic_star_border"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Favoritar"/>
+
+            <!-- Botão Voltar -->
+            <Button
+                android:id="@+id/btnVoltar"
+                android:text="Voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

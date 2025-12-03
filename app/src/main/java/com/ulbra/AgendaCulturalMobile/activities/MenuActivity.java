@@ -50,8 +50,22 @@ public class MenuActivity extends AppCompatActivity {
         recyclerEvento.setLayoutManager(new LinearLayoutManager(this));
 
         listaEventos = new ArrayList<>();
-        listaEventos.add(new Evento("Título 1", "Corpo da notícia 1", "01/12/2025", "05/12/2025", "Auditório"));
-        listaEventos.add(new Evento("Título 2", "Corpo da notícia 2", "30/11/2025", null, null));
+        listaEventos.add(new Evento(
+                "Título 1",
+                "Corpo da notícia 1",
+                "01/12/2025",
+                "05/12/2025",
+                "Auditório",
+                "Prof. João da Silva"   // 🔹 responsável
+        ));
+        listaEventos.add(new Evento(
+                "Título 2",
+                "Corpo da notícia 2",
+                "02/12/2025",
+                "15/12/2025",
+                "Auditório",
+                "Diretor: Everton"   // 🔹 responsável
+        ));
 
         eventoAdapter = new EventoAdapter(listaEventos);
         recyclerEvento.setAdapter(eventoAdapter);
