@@ -1,13 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
-        android:text="Página de Perfil"
-        android:textSize="20sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="Página de Perfil"
+        android:layout_marginBottom="130sp"
+        android:textSize="20sp" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="280dp"
+        android:layout_height="160sp"
+        android:layout_marginTop="0sp"
+        android:layout_marginBottom="50sp"
+        android:src="@drawable/ic_perfil"
+        tools:srcCompat="@drawable/ic_perfil" />
+
+    <EditText
+        android:id="@+id/edtxtNomePerfil"
+        android:layout_width="380sp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginBottom="30sp"
+        android:hint="Nome"
+
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/edtxtEmailPerfil"
+        android:layout_width="380sp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:layout_marginBottom="30sp"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnTelaPerfil"
+        android:layout_width="380sp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/beige"
+        android:layout_marginBottom="30sp"
+        android:text="Salvar" />
+
 </LinearLayout>
