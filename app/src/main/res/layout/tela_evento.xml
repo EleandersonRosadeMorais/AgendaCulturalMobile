@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <TextView
             android:id="@+id/txtTitulo"
             android:text="Título"
@@ -17,6 +18,12 @@
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/txtCorpo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"/>
 
         <TextView
             android:id="@+id/txtDataPostagem"
@@ -36,10 +43,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <!-- Responsável -->
         <TextView
-            android:id="@+id/txtCorpo"
+            android:id="@+id/txtResponsavel"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="8dp"/>
+            android:text="Responsável: "/>
+
     </LinearLayout>
 </ScrollView>

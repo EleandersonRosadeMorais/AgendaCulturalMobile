@@ -1,19 +1,22 @@
 package com.ulbra.AgendaCulturalMobile.models;
 
-public class Noticia {
+public class Evento {
     private String titulo;
     private String corpo;
     private String dataPostagem;
     private String dataEvento;
     private String local;
-    private boolean favoritado; // novo campo
+    private String responsavel;   // 🔹 novo campo
+    private boolean favoritado;   // campo já existente
 
-    public Noticia(String titulo, String corpo, String dataPostagem, String dataEvento, String local) {
+    // 🔹 Construtor atualizado com responsável
+    public Evento(String titulo, String corpo, String dataPostagem, String dataEvento, String local, String responsavel) {
         this.titulo = titulo;
         this.corpo = corpo;
         this.dataPostagem = dataPostagem;
         this.dataEvento = dataEvento;
         this.local = local;
+        this.responsavel = responsavel;
         this.favoritado = false; // padrão
     }
 
@@ -33,17 +36,21 @@ public class Noticia {
     public String getLocal() { return local; }
     public void setLocal(String local) { this.local = local; }
 
+    public String getResponsavel() { return responsavel; }   // 🔹 getter
+    public void setResponsavel(String responsavel) { this.responsavel = responsavel; }   // 🔹 setter
+
     public boolean isFavoritado() { return favoritado; }
     public void setFavoritado(boolean favoritado) { this.favoritado = favoritado; }
 
     @Override
     public String toString() {
-        return "Noticia{" +
+        return "Evento{" +
                 "titulo='" + titulo + '\'' +
                 ", corpo='" + corpo + '\'' +
                 ", dataPostagem='" + dataPostagem + '\'' +
                 ", dataEvento='" + dataEvento + '\'' +
                 ", local='" + local + '\'' +
+                ", responsavel='" + responsavel + '\'' +   // 🔹 incluído no toString
                 ", favoritado=" + favoritado +
                 '}';
     }

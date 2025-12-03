@@ -33,7 +33,7 @@
 
             <!-- Lista de notícias -->
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerNoticias"
+                android:id="@+id/recyclerEventos"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="12dp"

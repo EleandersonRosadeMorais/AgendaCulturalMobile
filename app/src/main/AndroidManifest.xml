@@ -23,7 +23,7 @@
 
         <activity android:name="com.ulbra.AgendaCulturalMobile.activities.MenuActivity" />
         <activity android:name="com.ulbra.AgendaCulturalMobile.activities.CadastroActivity" />
-        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.NoticiaActivity" />
+        <activity android:name="com.ulbra.AgendaCulturalMobile.activities.EventoActivity" />
         <activity android:name="com.ulbra.AgendaCulturalMobile.activities.FavoritosActivity" />
         <activity android:name="com.ulbra.AgendaCulturalMobile.activities.PerfilActivity" />
         <activity android:name="com.ulbra.AgendaCulturalMobile.activities.SobreActivity" />
