@@ -12,6 +12,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.ulbra.AgendaCulturalMobile.adapter.EventoAdapter;
 import com.ulbra.myapplication.R;
@@ -50,25 +54,62 @@ public class MenuActivity extends AppCompatActivity {
         recyclerEvento.setLayoutManager(new LinearLayoutManager(this));
 
         listaEventos = new ArrayList<>();
-        listaEventos.add(new Evento(
-                "Título 1",
-                "Corpo da notícia 1",
-                "01/12/2025",
-                "05/12/2025",
-                "Auditório",
-                "Prof. João da Silva"   // 🔹 responsável
-        ));
-        listaEventos.add(new Evento(
-                "Título 2",
-                "Corpo da notícia 2",
-                "02/12/2025",
-                "15/12/2025",
-                "Auditório",
-                "Diretor: Everton"   // 🔹 responsável
-        ));
-
         eventoAdapter = new EventoAdapter(listaEventos);
         recyclerEvento.setAdapter(eventoAdapter);
+
+        // 🔹 Carregar eventos da API
+        carregarEventos();
+    }
+
+    // 🔹 Método para consumir JSON da API
+    private void carregarEventos() {
+        RequestQueue queue = Volley.newRequestQueue(this);
+        listaEventos.clear();
+
+        // 🔹 Loop de 1 até 20
+        for (int i = 1; i <= 20; i++) {
+            final int id = i; // variável final para usar dentro da lambda
+            String url = "https://ac.infinitydev.com.br/api/APPfeedPríncipal.php?id=" + id;
+
+            JsonObjectRequest request = new JsonObjectRequest(
+                    Request.Method.GET,
+                    url,
+                    null,
+                    response -> {
+                        try {
+                            // 🔹 Verifica se o JSON tem conteúdo válido
+                            String titulo = response.optString("titulo", "");
+                            String descricao = response.optString("descricao", "");
+                            String data = response.optString("data", "");
+                            String local = response.optString("local", "");
+                            String responsavel = response.optString("responsavel", "");
+
+                            // 🔹 Só adiciona se tiver título (ou outro campo essencial)
+                            if (!titulo.isEmpty()) {
+                                Evento evento = new Evento(
+                                        titulo,
+                                        descricao,
+                                        data,   // dataPostagem
+                                        data,   // dataEvento
+                                        local,
+                                        responsavel
+                                );
+
+                                listaEventos.add(evento);
+                                eventoAdapter.notifyDataSetChanged();
+                            }
+                            // Se estiver vazio, simplesmente ignora (não adiciona, não mostra toast)
+                        } catch (Exception e) {
+                            e.printStackTrace(); // apenas loga
+                        }
+                    },
+                    error -> {
+                        error.printStackTrace(); // apenas loga
+                    }
+            );
+
+            queue.add(request);
+        }
     }
 
     // Trata seleção de itens do Drawer

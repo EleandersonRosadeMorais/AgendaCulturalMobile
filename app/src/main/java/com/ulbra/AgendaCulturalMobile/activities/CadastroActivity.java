@@ -30,8 +30,7 @@ public class CadastroActivity extends AppCompatActivity {
                 // Simulação de cadastro
                 Usuario usuario = new Usuario(
                         edtNome.getText().toString().trim(),
-                        edtEmail.getText().toString().trim(),
-                        edtSenha.getText().toString().trim()
+                        edtEmail.getText().toString().trim()
                 );
 
                 // Aqui futuramente salvaria no banco ou API

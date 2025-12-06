@@ -1,49 +1,34 @@
 package com.ulbra.AgendaCulturalMobile.models;
 
 public class Usuario {
+    private int id_pk;
     private String nome;
+    private String dataNascimento;
+    private String cpf;
     private String email;
-    private String senha;
+    private String tipo;
 
-    // Construtor
-    public Usuario(String nome, String email, String senha) {
+    // 🔹 Construtor vazio (necessário para Retrofit/Gson)
+    public Usuario() {}
+
+    public Usuario(String nome, String email) {
         this.nome = nome;
         this.email = email;
-        this.senha = senha;
     }
 
-    // Getters e Setters
-    public String getNome() {
-        return nome;
-    }
+    // Getters
+    public int getId_pk() { return id_pk; }
+    public String getNome() { return nome; }
+    public String getDataNascimento() { return dataNascimento; }
+    public String getCpf() { return cpf; }
+    public String getEmail() { return email; }
+    public String getTipo() { return tipo; }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    // Método de representação textual
-    @Override
-    public String toString() {
-        return "Usuario{" +
-                "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
-    }
+    // Setters
+    public void setId_pk(int id_pk) { this.id_pk = id_pk; }
+    public void setNome(String nome) { this.nome = nome; }
+    public void setDataNascimento(String dataNascimento) { this.dataNascimento = dataNascimento; }
+    public void setCpf(String cpf) { this.cpf = cpf; }
+    public void setEmail(String email) { this.email = email; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 }

@@ -38,8 +38,8 @@ public class EventoAdapter extends RecyclerView.Adapter<EventoAdapter.EventoView
 
         // Preenche os textos
         holder.txtTituloItem.setText(evento.getTitulo());
-        holder.txtDescricaoItem.setText(evento.getCorpo());
-        holder.txtDataEventoItem.setText("Evento: " + (evento.getDataEvento() != null ? evento.getDataEvento() : "-"));
+        holder.txtDescricaoItem.setText(evento.getDescricao());
+        holder.txtDataEventoItem.setText("Evento: " + (evento.getData() != null ? evento.getData() : "-"));
         holder.txtDataPostagemItem.setText("Postado em: " + evento.getDataPostagem());
         holder.txtResponsavelItem.setText("Responsável: " + (evento.getResponsavel() != null ? evento.getResponsavel() : "-"));
 
